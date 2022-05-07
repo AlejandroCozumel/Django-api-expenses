@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
+from authentication.models import User
 from expenses.models import Expense
 from incomes.models import Income
 from rest_framework.response import Response
@@ -8,6 +9,8 @@ import datetime
 import pdb
 
 # Create your views here.
+
+
 class ExpenseSummaryStats(APIView):
 
   def get_amount_for_category(self, expense_list, category):
@@ -31,7 +34,7 @@ class ExpenseSummaryStats(APIView):
 
 
     for category in categories:
-        # pdb.set_trace()
+
       final[category] = self.get_amount_for_category(expenses, category)
         
     return Response({'category_data': final}, status=status.HTTP_200_OK)
