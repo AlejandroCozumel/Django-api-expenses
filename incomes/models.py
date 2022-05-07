@@ -14,4 +14,4 @@ class Income(models.Model):
         ordering=['-date']
     
     def __str__(self):
-        return str(self.owner)+'s income'
+        return str(self.owner)+ " 's income"
